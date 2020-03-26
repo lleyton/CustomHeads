@@ -1,0 +1,24 @@
+name: HeadPicker
+version: '1.0'
+main: com.innatical.HeadPicker.HeadPicker
+depend: [NBTAPI]
+api-version: '1.15'
+prefix: HeadPicker
+website: innatical.com
+author: Lleyton
+load: STARTUP
+description: A GUI for the minecraft-heads.com custom heads database
+permissions:
+  headpicker.*:
+    description: Gives access to all HeadPicker commands
+    children:
+      headpicker.use: true
+  headpicker.use:
+    description: Gives access to use the HeadPicker GUI
+    default: op
+commands:
+  heads:
+    description: Shows the HeadPicker GUI.
+    usage: /heads
+    permission: headpicker.use
+    permission-message: You not have have permission to use this command.
