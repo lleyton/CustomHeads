@@ -8,7 +8,7 @@ class MainView extends View {
     private final HeadDatabase db;
 
     public MainView(HeadDatabase db, Plugin plugin, Server server) {
-        super((int) (Math.ceil(HeadCategories.values().length / 9f) * 9), "HeadPicker - Main Menu", plugin, server);
+        super((int) (Math.ceil(HeadCategories.values().length / 9f) * 9), "CustomHeads - Main Menu", plugin, server);
         this.db = db;
 
         initializeItems();

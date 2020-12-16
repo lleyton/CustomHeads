@@ -9,16 +9,16 @@ author: Lleyton
 load: STARTUP
 description: A GUI for the minecraft-heads.com custom heads database
 permissions:
-  headpicker.*:
+  CustomHeads.*:
     description: Gives access to all CustomHeads commands
     children:
-      headpicker.use: true
-  headpicker.use:
+      CustomHeads.use: true
+  CustomHeads.use:
     description: Gives access to use the CustomHeads GUI
     default: op
 commands:
   heads:
     description: Shows the CustomHeads GUI.
     usage: /heads
-    permission: headpicker.use
+    permission: CustomHeads.use
     permission-message: You not have have permission to use this command.

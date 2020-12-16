@@ -17,7 +17,7 @@ class PageView extends View {
     final private int maxPages;
 
     public PageView(Plugin plugin, Server server, HeadCategories category, int pageNumber, int maxPages, Consumer<HumanEntity> previousPage, Consumer<HumanEntity> nextPage, ArrayList<ItemStack> items) {
-        super(54, "HeadPicker - " + category.getName() + " #" + pageNumber, plugin, server);
+        super(54, "CustomHeads - " + category.getName() + " #" + pageNumber, plugin, server);
 
         this.items = items;
         this.previousPage = previousPage;
