@@ -15,10 +15,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Consumer;
+
+import static com.innatical.HeadPicker.HeadPicker.convertStringUUID;
 
 class HeadDatabase {
     final private HashMap<HeadCategories, ArrayList<ItemStack>> heads = new HashMap<>();
@@ -58,7 +58,8 @@ class HeadDatabase {
                         item.addCompound("display").setString("Name", "{\"text\":\"§r" + object.get("name").getAsString() + "\"}");
 
                         final NBTCompound skull = item.addCompound("SkullOwner");
-                        skull.setString("Id", object.get("uuid").getAsString());
+
+                        skull.setIntArray("Id", convertStringUUID(object.get("uuid").getAsString()));
                         skull.addCompound("Properties").getCompoundList("textures").addCompound().setString("Value",  object.get("value").getAsString());
 
                         items.add(item.getItem());

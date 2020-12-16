@@ -2,8 +2,11 @@ package com.innatical.HeadPicker;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+import java.util.UUID;
+
 public class HeadPicker extends JavaPlugin {
-    private HeadDatabase db = new HeadDatabase(this);
+    private final HeadDatabase db = new HeadDatabase(this);
 
     @Override
     public void onEnable() {
@@ -14,7 +17,16 @@ public class HeadPicker extends JavaPlugin {
                 getLogger().severe(error.getMessage());
             }
         });
-        this.getCommand("heads").setExecutor(new HeadsCommand(db, this, getServer()));
+        Objects.requireNonNull(this.getCommand("heads")).setExecutor(new HeadsCommand(db, this, getServer()));
+    }
+
+    public static int[] convertStringUUID(String uuid) {
+        final UUID oldUUID = UUID.fromString(uuid);
+
+        final long mostSignificant = oldUUID.getMostSignificantBits();
+        final long leastSignificant = oldUUID.getLeastSignificantBits();
+
+        return new int[]{(int) (mostSignificant >> 32), (int) mostSignificant, (int) (leastSignificant >> 32), (int) leastSignificant};
     }
 }
 

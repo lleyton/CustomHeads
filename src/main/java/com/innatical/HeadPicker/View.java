@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Server;
 import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
@@ -23,6 +22,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.innatical.HeadPicker.HeadPicker.convertStringUUID;
+
 abstract class View implements InventoryHolder, Listener {
     protected final Inventory inv;
     protected final Plugin plugin;
@@ -37,6 +38,7 @@ abstract class View implements InventoryHolder, Listener {
     protected ItemStack createGuiItem(Material material, String name, String...lore) {
         ItemStack item = new ItemStack(material, 1);
         ItemMeta meta = item.getItemMeta();
+        assert meta != null;
         meta.setDisplayName(name);
         ArrayList<String> metaLore = new ArrayList<>();
 
@@ -52,7 +54,7 @@ abstract class View implements InventoryHolder, Listener {
         item.addCompound("display").setString("Name", "{\"text\":\"" + name + "\"}");
 
         final NBTCompound skull = item.addCompound("SkullOwner");
-        skull.setString("Id", uuid);
+        skull.setIntArray("Id", convertStringUUID(uuid));
         skull.addCompound("Properties").getCompoundList("textures").addCompound().setString("Value",  texture);
 
         return item.getItem();
@@ -79,7 +81,6 @@ abstract class View implements InventoryHolder, Listener {
         }
         e.setCancelled(true);
 
-        Player p = (Player) e.getWhoClicked();
         ItemStack clickedItem = e.getCurrentItem();
 
         if (clickedItem == null || clickedItem.getType() == Material.AIR || !inv.contains(clickedItem)) return;

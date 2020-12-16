@@ -16,7 +16,7 @@ class PageView extends View {
     final private int pageNumber;
     final private int maxPages;
 
-    public PageView(HeadDatabase db, Plugin plugin, Server server, HeadCategories category, int pageNumber, int maxPages, Consumer<HumanEntity> previousPage, Consumer<HumanEntity> nextPage, ArrayList<ItemStack> items) {
+    public PageView(Plugin plugin, Server server, HeadCategories category, int pageNumber, int maxPages, Consumer<HumanEntity> previousPage, Consumer<HumanEntity> nextPage, ArrayList<ItemStack> items) {
         super(54, "HeadPicker - " + category.getName() + " #" + pageNumber, plugin, server);
 
         this.items = items;

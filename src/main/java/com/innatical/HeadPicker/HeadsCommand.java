@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 class HeadsCommand implements CommandExecutor {
     private final HeadDatabase db;
@@ -18,7 +19,7 @@ class HeadsCommand implements CommandExecutor {
         this.server = server;
     }
 
-    public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (!db.isReady()) {
