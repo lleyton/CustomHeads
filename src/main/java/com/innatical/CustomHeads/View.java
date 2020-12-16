@@ -1,4 +1,4 @@
-package com.innatical.HeadPicker;
+package com.innatical.CustomHeads;
 
 import de.tr7zw.nbtapi.NBTCompound;
 import de.tr7zw.nbtapi.NBTItem;
@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static com.innatical.HeadPicker.HeadPicker.convertStringUUID;
+import static com.innatical.CustomHeads.CustomHeads.convertStringUUID;
 
 abstract class View implements InventoryHolder, Listener {
     protected final Inventory inv;

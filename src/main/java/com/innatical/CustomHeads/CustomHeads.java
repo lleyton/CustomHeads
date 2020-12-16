@@ -1,11 +1,11 @@
-package com.innatical.HeadPicker;
+package com.innatical.CustomHeads;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 import java.util.UUID;
 
-public class HeadPicker extends JavaPlugin {
+public class CustomHeads extends JavaPlugin {
     private final HeadDatabase db = new HeadDatabase(this);
 
     @Override

@@ -1,4 +1,4 @@
-package com.innatical.HeadPicker;
+package com.innatical.CustomHeads;
 
 import org.bukkit.Server;
 import org.bukkit.event.inventory.InventoryClickEvent;

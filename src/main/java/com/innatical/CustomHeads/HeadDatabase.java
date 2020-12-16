@@ -1,4 +1,4 @@
-package com.innatical.HeadPicker;
+package com.innatical.CustomHeads;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.function.Consumer;
 
-import static com.innatical.HeadPicker.HeadPicker.convertStringUUID;
+import static com.innatical.CustomHeads.CustomHeads.convertStringUUID;
 
 class HeadDatabase {
     final private HashMap<HeadCategories, ArrayList<ItemStack>> heads = new HashMap<>();
