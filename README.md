@@ -9,5 +9,5 @@ A GUI for the [minecraft-heads.com](https://minecraft-heads.com) custom heads da
 ## Usage
 `/heads` - Shows the main GUI
 
-## Permisions
+## Permissions
 `CustomHeads.use` - Allows user to open the GUI (Default: OP)
